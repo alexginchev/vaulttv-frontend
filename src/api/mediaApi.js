@@ -22,3 +22,8 @@ export const uploadBackdrop = (id, file) => {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
 };
+export const addCastMember = (mediaId, actorId, role) =>
+  axiosClient.post('/media/cast', { mediaId, actorId, role });
+
+export const removeCastMember = (castId) =>
+  axiosClient.delete(`/media/cast/${castId}`);

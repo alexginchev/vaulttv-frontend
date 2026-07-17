@@ -1,0 +1,133 @@
+.detail-backdrop {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface);
+  position: relative;
+}
+
+.detail-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.5) 100%);
+}
+
+.detail-content {
+  display: flex;
+  gap: 32px;
+  padding: 0 40px 60px;
+  margin-top: -160px;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-poster {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.detail-poster img {
+  width: 100%;
+  border-radius: var(--card-radius);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.detail-info {
+  padding-top: 160px;
+  max-width: 700px;
+}
+
+.detail-info h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.detail-genres {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.genre-tag {
+  padding: 4px 12px;
+  background: var(--surface);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.detail-description {
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.detail-director {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.watchlist-btn {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.watchlist-btn:disabled {
+  opacity: 0.6;
+}
+
+.admin-btn {
+  padding: 12px 24px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.admin-btn.danger {
+  color: #ff453a;
+  border-color: rgba(255,69,58,0.3);
+}
+
+.detail-cast h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cast-member {
+  min-width: 120px;
+}
+
+.cast-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cast-role {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}

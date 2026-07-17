@@ -1,0 +1,32 @@
+.watchlist-page {
+  padding: 100px 40px 40px;
+}
+
+.watchlist-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.watchlist-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.watchlist-remove {
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.watchlist-remove:hover {
+  color: var(--text-primary);
+}

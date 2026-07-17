@@ -10,6 +10,14 @@ import './components/Navbar.css';
 import './components/Hero.css';
 import './components/Carousel.css';
 import './components/MediaCard.css';
+import MediaDetail from './pages/MediaDetail';
+import './pages/MediaDetail.css';
+import Watchlist from './pages/Watchlist';
+import './pages/Watchlist.css';
+
+
+
+// ...inside <Routes>
 
 function App() {
   return (
@@ -19,7 +27,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Library />} />
-
+        <Route path="/media/:id" element={<MediaDetail />} />
+        <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
         <Route path="/admin/media/new" element={<AdminRoute><MediaForm /></AdminRoute>} />
         <Route path="/admin/media/:id/edit" element={<AdminRoute><MediaForm /></AdminRoute>} />
