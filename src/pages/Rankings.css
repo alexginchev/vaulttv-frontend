@@ -1,0 +1,124 @@
+.rankings-page, .ranking-detail-page {
+  padding: 100px 40px 40px;
+}
+
+.rankings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.rankings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.ranking-list-card {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: var(--card-radius);
+  transition: transform var(--transition);
+}
+
+.ranking-list-card:hover {
+  transform: translateY(-4px);
+}
+
+.ranking-list-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.ranking-count {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.ranking-description {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.ranking-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 600px;
+}
+
+.ranking-entry {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  padding: 14px 18px;
+  border-radius: 8px;
+}
+
+.ranking-position {
+  font-weight: 700;
+  color: var(--text-secondary);
+  width: 24px;
+}
+
+.ranking-entry-info {
+  flex: 1;
+}
+
+.ranking-entry-name {
+  font-weight: 600;
+}
+
+.ranking-entry-note {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.ranking-entry-score {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.drag-handle {
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: grab;
+  touch-action: none;
+}
+
+.entry-delete {
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.entry-delete:hover {
+  color: #ff453a;
+}
+
+.add-entry-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  max-width: 600px;
+}
+
+.add-entry-form input {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.add-entry-form button {
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+}

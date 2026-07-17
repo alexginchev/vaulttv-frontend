@@ -14,10 +14,12 @@ import MediaDetail from './pages/MediaDetail';
 import './pages/MediaDetail.css';
 import Watchlist from './pages/Watchlist';
 import './pages/Watchlist.css';
+import Rankings from './pages/Rankings';
+import RankingDetail from './pages/RankingDetail';
+import RankingListForm from './pages/RankingListForm';
+import './pages/Rankings.css';
 
 
-
-// ...inside <Routes>
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Library />} />
         <Route path="/media/:id" element={<MediaDetail />} />
+        <Route path="/rankings" element={<Rankings />} />
+        <Route path="/rankings/:listId" element={<RankingDetail />} />
+        <Route path="/admin/rankings/new" element={<AdminRoute><RankingListForm /></AdminRoute>} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
         <Route path="/admin/media/new" element={<AdminRoute><MediaForm /></AdminRoute>} />
