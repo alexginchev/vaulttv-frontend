@@ -1,0 +1,41 @@
+.media-card {
+  display: block;
+  flex-shrink: 0;
+  width: 180px;
+  transition: transform var(--transition);
+}
+
+.media-card:hover {
+  transform: scale(1.06);
+}
+
+.media-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+  background: var(--surface);
+}
+
+.media-card-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--card-radius);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.media-card-title {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}   
