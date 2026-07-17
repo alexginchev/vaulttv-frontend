@@ -18,6 +18,10 @@ import Rankings from './pages/Rankings';
 import RankingDetail from './pages/RankingDetail';
 import RankingListForm from './pages/RankingListForm';
 import './pages/Rankings.css';
+import AdminActors from './pages/AdminActors';
+import './pages/AdminActors.css';
+
+// ...inside <Routes>
 
 
 
@@ -37,6 +41,7 @@ function App() {
         <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
         <Route path="/admin/media/new" element={<AdminRoute><MediaForm /></AdminRoute>} />
         <Route path="/admin/media/:id/edit" element={<AdminRoute><MediaForm /></AdminRoute>} />
+        <Route path="/admin/actors" element={<AdminRoute><AdminActors /></AdminRoute>} />
       </Routes>
     </>
   );
