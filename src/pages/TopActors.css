@@ -1,0 +1,83 @@
+.top-actors-page {
+  padding: 100px 40px 40px;
+}
+
+.top-actors-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+.top-actors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.top-actor-card {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 140px;
+}
+
+.top-actor-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 8px;
+}
+
+.top-actor-meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.top-actor-empty {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.top-actor-admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.top-actor-admin-actions button,
+.assign-btn {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.top-actor-admin-actions .danger:hover {
+  color: #ff453a;
+}
+
+.actor-picker-list {
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.actor-picker-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.actor-picker-item:hover {
+  background: rgba(255,255,255,0.1);
+}

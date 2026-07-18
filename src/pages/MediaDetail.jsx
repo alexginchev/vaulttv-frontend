@@ -3,6 +3,10 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getMediaById, deleteMedia } from '../api/mediaApi';
 import { getMyWatchlist, addToWatchlist, removeFromWatchlist } from '../api/watchlistApi';
 import { useAuth } from '../context/AuthContext';
+import RankBadge from '../components/RankBadge';
+import '../components/RankBadge.css';
+
+// ...inside the cast-member div:
 
 function MediaDetail() {
   const { id } = useParams();
@@ -115,7 +119,7 @@ function MediaDetail() {
               <div className="cast-list">
                 {media.cast.map((c) => (
                   <div key={c.actorId} className="cast-member">
-                    <p className="cast-name">{c.actorName}</p>
+                    <p className="cast-name">{c.actorName} <RankBadge rank={c.topRank} /></p>
                     {c.role && <p className="cast-role">{c.role}</p>}
                   </div>
                 ))}

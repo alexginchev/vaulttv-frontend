@@ -3,8 +3,6 @@ import { useAuth } from '../context/AuthContext';
 import NotificationBell from './NotificationBell';
 import './NotificationBell.css';
 
-// ...inside the navbar-auth div, before the username/logout:
-
 function Navbar() {
   const { user, logoutUser, isAdmin } = useAuth();
   const navigate = useNavigate();
@@ -20,6 +18,7 @@ function Navbar() {
       <div className="navbar-links">
         <Link to="/">Library</Link>
         <Link to="/rankings">Rankings</Link>
+        <Link to="/top-actors">Top Actors</Link>
         {user && <Link to="/watchlist">Watchlist</Link>}
         {isAdmin && <Link to="/admin">Admin</Link>}
       </div>
