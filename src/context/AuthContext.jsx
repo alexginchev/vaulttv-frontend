@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { applyTheme } from '../utils/theme';
 
 const AuthContext = createContext(null);
 
@@ -7,6 +8,10 @@ export function AuthProvider({ children }) {
     const stored = localStorage.getItem('vaulttv_user');
     return stored ? JSON.parse(stored) : null;
   });
+
+  useEffect(() => {
+    if (user?.themePreference) applyTheme(user.themePreference);
+  }, [user]);
 
   const loginUser = (token, username, role) => {
     localStorage.setItem('vaulttv_token', token);

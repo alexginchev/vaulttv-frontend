@@ -7,7 +7,13 @@
   --card-radius: 10px;
   --transition: 200ms ease;
 }
-
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f2f2f4;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --accent: #000000;
+}
 * {
   box-sizing: border-box;
   margin: 0;
