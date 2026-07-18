@@ -1,0 +1,102 @@
+.notification-bell {
+  position: relative;
+}
+
+.bell-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.bell-btn:hover {
+  color: var(--text-primary);
+}
+
+.bell-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #ff453a;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  padding: 16px;
+  z-index: 300;
+}
+
+.notification-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.notification-dropdown-header h3 {
+  font-size: 1rem;
+}
+
+.mark-all-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.mark-all-btn:hover {
+  color: var(--text-primary);
+}
+
+.notification-empty {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification-item {
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+
+.notification-item.unread {
+  background: rgba(255,255,255,0.08);
+  border-left: 3px solid var(--accent);
+}
+
+.notification-item-footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.notification-item-footer button,
+.notification-item-footer a {
+  color: var(--accent);
+}

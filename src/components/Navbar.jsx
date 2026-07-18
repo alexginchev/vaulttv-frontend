@@ -1,5 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import NotificationBell from './NotificationBell';
+import './NotificationBell.css';
+
+// ...inside the navbar-auth div, before the username/logout:
 
 function Navbar() {
   const { user, logoutUser, isAdmin } = useAuth();
@@ -22,6 +26,7 @@ function Navbar() {
       <div className="navbar-auth">
         {user ? (
           <>
+            {isAdmin && <NotificationBell />}
             <span className="navbar-username">{user.username}</span>
             <button onClick={handleLogout}>Sign Out</button>
           </>
