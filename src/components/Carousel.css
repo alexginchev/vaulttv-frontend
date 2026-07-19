@@ -1,19 +1,23 @@
 .carousel {
-  margin: 32px 0;
+  margin: 40px 0;
   padding-left: 40px;
+  opacity: 0;
+  animation: slideUp var(--transition-slow) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
 }
 
 .carousel-title {
   font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.2px;
 }
 
 .carousel-track {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   overflow-x: auto;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   padding-right: 40px;
   scroll-behavior: smooth;
 }
@@ -23,6 +27,10 @@
 }
 
 .carousel-track::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
+  background: rgba(120, 160, 255, 0.25);
   border-radius: 3px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 160, 255, 0.45);
 }

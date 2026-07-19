@@ -1,10 +1,10 @@
 import MediaCard from './MediaCard';
 
-function Carousel({ title, items }) {
+function Carousel({ title, items, index = 0 }) {
   if (!items.length) return null;
 
   return (
-    <section className="carousel">
+    <section className="carousel" style={{ '--i': index }}>
       <h2 className="carousel-title">{title}</h2>
       <div className="carousel-track">
         {items.map((item) => (
@@ -14,5 +14,7 @@ function Carousel({ title, items }) {
     </section>
   );
 }
+
+export default Carousel;
 
 export default Carousel;

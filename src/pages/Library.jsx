@@ -37,18 +37,18 @@ function Library() {
     });
   });
 
-  return (
-    <div className="library-page">
-      <Hero media={heroItem} />
-      <div className="library-shelves">
-        <Carousel title="Movies" items={movies} />
-        <Carousel title="Shows" items={shows} />
-        {Object.entries(genreMap).map(([genre, items]) => (
-          <Carousel key={genre} title={genre} items={items} />
-        ))}
-      </div>
+ return (
+  <div className="library-page">
+    <Hero media={heroItem} />
+    <div className="library-shelves">
+      <Carousel title="Movies" items={movies} index={0} />
+      <Carousel title="Shows" items={shows} index={1} />
+      {Object.entries(genreMap).map(([genre, items], i) => (
+        <Carousel key={genre} title={genre} items={items} index={i + 2} />
+      ))}
     </div>
-  );
+  </div>
+);
 }
 
 export default Library;
