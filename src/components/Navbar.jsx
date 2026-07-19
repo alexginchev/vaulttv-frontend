@@ -26,7 +26,7 @@ function Navbar() {
         {user ? (
           <>
             {isAdmin && <NotificationBell />}
-            <span className="navbar-username">{user.username}</span>
+            <Link to="/profile" className="navbar-username">{user.username}</Link>
             <button onClick={handleLogout}>Sign Out</button>
           </>
         ) : (

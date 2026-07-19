@@ -1,23 +1,50 @@
 :root {
-  --bg: #000000;
-  --surface: #161616;
-  --text-primary: #f5f5f7;
-  --text-secondary: #a1a1a6;
-  --accent: #ffffff;
-  --card-radius: 10px;
-  --transition: 200ms ease;
+  --bg: #05070f;
+  --bg-secondary: #0a0e1a;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-solid: #10141f;
+  --border: rgba(120, 160, 255, 0.16);
+
+  --text-primary: #f2f4fb;
+  --text-secondary: #8b93ab;
+
+  --accent: #4f7dff;
+  --accent-glow: #7aa2ff;
+  --accent-deep: #2952d9;
+
+  --gold: #ffd700;
+  --silver: #d8dee8;
+  --bronze: #cd7f32;
+
+  --card-radius: 16px;
+  --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 420ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --glass-blur: blur(18px);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 40px rgba(79, 125, 255, 0.25);
 }
+
 [data-theme="light"] {
-  --bg: #ffffff;
-  --surface: #f2f2f4;
-  --text-primary: #1d1d1f;
-  --text-secondary: #6e6e73;
-  --accent: #000000;
+  --bg: #f5f7fc;
+  --bg-secondary: #eef1f9;
+  --surface: rgba(255, 255, 255, 0.6);
+  --surface-solid: #ffffff;
+  --border: rgba(60, 100, 220, 0.14);
+  --text-primary: #10131c;
+  --text-secondary: #5b6376;
+  --shadow-soft: 0 8px 30px rgba(30, 60, 150, 0.08);
+  --shadow-glow: 0 0 40px rgba(79, 125, 255, 0.15);
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -25,20 +52,116 @@ body {
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ---------- Ambient animated background ---------- */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: float 18s ease-in-out infinite;
 }
 
-.error {
-  color: #ff453a;
-  font-size: 0.9rem;
+.ambient-blob.one {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  top: -10%; left: -10%;
 }
+
+.ambient-blob.two {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, var(--accent-deep), transparent 70%);
+  bottom: -15%; right: -5%;
+  animation-delay: -6s;
+}
+
+.ambient-blob.three {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  top: 40%; left: 60%;
+  animation-delay: -12s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-20px, 25px) scale(0.95); }
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  box-shadow: 0 0 12px 2px var(--accent-glow);
+  opacity: 0.6;
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-120vh) translateX(40px); opacity: 0; }
+}
+
+/* ---------- Glass card ---------- */
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.glass-card:hover {
+  border-color: rgba(120, 160, 255, 0.35);
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
+}
+
+/* ---------- Reusable animation utility classes ---------- */
+.fade-in {
+  animation: fadeIn var(--transition-slow) both;
+}
+.slide-up {
+  animation: slideUp var(--transition-slow) both;
+}
+.scale-in {
+  animation: scaleIn var(--transition-slow) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Stagger helper — apply alongside slide-up/fade-in, pair with inline --i index */
+.stagger { animation-delay: calc(var(--i, 0) * 70ms); }
+
+.error { color: #ff6b6b; font-size: 0.9rem; }
+.success { color: #30d97f; font-size: 0.9rem; }

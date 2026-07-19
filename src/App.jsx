@@ -23,16 +23,14 @@ import './pages/AdminActors.css';
 import TopActors from './pages/TopActors';
 import './pages/TopActors.css';
 import './components/RankBadge.css';
-
-// ...inside <Routes>
-
-// ...inside <Routes>
-
-
+import Profile from './pages/Profile';
+import './pages/Profile.css';
+import AmbientBackground from './components/AmbientBackground';
 
 function App() {
   return (
     <>
+      <AmbientBackground />
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -48,9 +46,11 @@ function App() {
         <Route path="/admin/media/:id/edit" element={<AdminRoute><MediaForm /></AdminRoute>} />
         <Route path="/admin/actors" element={<AdminRoute><AdminActors /></AdminRoute>} />
         <Route path="/top-actors" element={<TopActors />} />
+        <Route path="/profile" element={<Profile />} /> 
       </Routes>
     </>
   );
 }
+
 
 export default App;
