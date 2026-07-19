@@ -6,8 +6,6 @@ import { useAuth } from '../context/AuthContext';
 import RankBadge from '../components/RankBadge';
 import '../components/RankBadge.css';
 
-// ...inside the cast-member div:
-
 function MediaDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,6 +15,14 @@ function MediaDetail() {
   const [loading, setLoading] = useState(true);
   const [inWatchlist, setInWatchlist] = useState(false);
   const [watchlistBusy, setWatchlistBusy] = useState(false);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { innerWidth, innerHeight } = window;
+    const x = (e.clientX / innerWidth - 0.5) * 20;
+    const y = (e.clientY / innerHeight - 0.5) * 10;
+    setTilt({ x, y });
+  };
 
   useEffect(() => {
     getMediaById(id)
@@ -65,9 +71,13 @@ function MediaDetail() {
     <div className="detail-page">
       <div
         className="detail-backdrop"
+        onMouseMove={handleMouseMove}
         style={backdropSrc ? { backgroundImage: `url(${backdropSrc})` } : undefined}
       >
-        <div className="detail-backdrop-overlay" />
+        <div
+          className="detail-backdrop-overlay"
+          style={{ transform: `translate(${tilt.x}px, ${tilt.y}px) scale(1.05)` }}
+        />
       </div>
 
       <div className="detail-content">
